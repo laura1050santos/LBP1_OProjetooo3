@@ -1,12 +1,13 @@
-lst_personagem = []
-class Personagem:
-    def __init__(self, nome, cidade):
-        self.nome = nome
-        self.cidade = cidade
+lst_users = []
 
-    def add_personagem():
-        lst_personagem.append(p1)
+class Usuarios:
+    def __init__(self, user,senha):
+        self.user = user
+        self.senha = senha
 
 
-p1= Personagem(nome='Tartaglia', cidade="Liyue")
-p1.add_personagem()
+
+p1 = Usuarios('user',"abc123")
+lst_users.append(p1)
+p2 = Usuarios('admin', "adm123")
+lst_users.append(p2)
