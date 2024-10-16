@@ -1,12 +1,18 @@
-from flask import Flask
-from controllers.controler import app_inicial
-from controllers.controller_login import app_login
+from flask import Flask, request,session
+from controllers.controller import loginController
+from datetime import timedelta
 
 
 app = Flask(__name__)
 
-app.register_blueprint(app_inicial)
-app.register_blueprint(app_login)
+app.secret_key = 'chave'
+app.permanent_session_lifetime = timedelta(minutes=5)
 
-if __name__ == '__main__':
+@app.before_request
+def log_request_info():
+    print(f'Método: {request.method}, URL: {request.url}')
+
+app.register_blueprint(loginController)
+
+if __name__ == "__main__":
     app.run(debug=True)

@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href= "{{ url_for ( 'static', filename='style.css') }}">
     <title>Document</title>
 </head>
-<body id="body">
-    <div class="hello">
-
-        <hr> 
-    </div>
+<body>
+    <b>LOGIN</b>
+    <br>
+    <form method="POST">
+        <label for="nome">Usuário: </label>
+        <br>
+        <input type="text" name="nome" id="nome">
+        <br>
+        <label for="senha">Senha: </label>
+        <br>
+        <input type="password" id="senha"name="senha">
+        <br>
+        <button type="submit">Confimar</button>
+    </form>
+    {% if error %}
+        {{error}}
+    {% endif %}
 </body>
 </html>
