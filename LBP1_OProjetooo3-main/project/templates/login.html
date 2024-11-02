@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form action="/login" method="POST">
+        <div class="container">
+            <h2>Login</h2>
+            <input type="text" name='nome' placeholder="Usuário" required>
+            <input type="password" name='senha' placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+            {% with resposta=get_flashed_messages(with_categories = True) %}
+                {%if resposta%}
+                    {% for category, message in resposta %}
+                        <p class="{{category}}">{{message}}</p>
+                    {% endfor %}
+                {%endif%}
+            {% endwith %}
+        </div>
+    </form>
+</body>
+
+</html>
